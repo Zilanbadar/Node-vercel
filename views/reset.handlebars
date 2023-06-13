@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.main{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			height: auto;
+			width: fit-content;
+			padding: 20px 20px;
+			background-color: mintcream;
+			border:1px solid #00bcd4;
+			border-radius: 4px;
+		}
+	
+		form{
+			display: flex;
+			flex-direction: column;
+			border-radius: 4px;
+			row-gap: 20px;
+			
+		}
+		input{
+			height: 40px;
+			width: 350px;
+			border-radius: 4px;
+			outline: none;
+			font-size: 18px;
+			border:1px solid #00bcd4;
+		}
+		button{
+			height: 40px;
+			width: 100px;
+			background:linear-gradient(to right, #00bcd4, #00bcd4);
+			color:white;
+			font-size: 18px;
+			border:none;
+			
+		}
+		button:active{
+			box-shadow: 2px 4px 8px white,-2px -4px 8px white;
+		}
+		body{
+			display: grid;
+			place-items: center;
+			background-color:white;
+		}
+		.label{
+			height: 40px;
+			width: 300px;
+			background:linear-gradient(to right,#00bcd4,#00e5ff);
+		;	animation: infinite 1s linear;
+			font-size: 18px;
+			color:white;
+			border-radius: 4px;
+			text-align: center;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="label"></div>
+		<h1>Reset Password</h1>
+		
+		<form action="http://localhost:4040/reset-password/reset/{{id}}/{{token}}" method="post">
+		<input type="password" name="password" id="password" placeholder="new password"/>
+		<input type="password" name="confirm" id="confirm" placeholder="confirm password"/>
+		<button type="submit">Reset</button>
+	</form>
+	</div>
+	<script>
+		let password = document.getElementById('password');
+		let confirm = document.getElementById('confirm');
+		confirm.addEventListener('keyup',function(){
+			if(password.value != confirm.value){
+				confirm.setCustomValidity('Password do not match');
+			}
+			else{
+				confirm.setCustomValidity('');
+			}
+		});
+	</script>
+</body>
+</html>

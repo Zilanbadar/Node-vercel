@@ -1,0 +1,39 @@
+{
+  "name": "amazify-server",
+  "version": "1.0.0",
+  "description": "Backend for the e-commerce web.",
+  "main": "server.js",
+  "engines": {
+    "node" : "14.x"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "nodem server.js"
+  },
+  "repository": "",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "cron": "^1.8.2",
+    "crypto": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "es6-set": "^0.1.5",
+    "express": "^4.17.1",
+    "express-handlebars": "^6.0.6",
+    "joi": "^17.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.2.1",
+    "mongoose": "^6.0.12",
+    "node-apidoc": "^0.1.0",
+    "nodemailer": "^6.7.2",
+    "puppeteer": "^11.0.0",
+    "puppeteer-cluster": "^0.23.0",
+    "stripe": "^12.9.0",
+    "yarn": "^1.22.17"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
