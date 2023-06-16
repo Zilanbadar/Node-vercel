@@ -1,6 +1,6 @@
 import express from "express";
 import { config } from "dotenv";
-import mainService from "./services/mainService.js";
+// import mainService from "./services/mainService.js";
 import userRoutes from "./api/routes/user.routes.js";
 import jobRoutes from "./api/routes/job.routes.js";
 import resetRoutes from "./api/routes/resetPassword.routes.js";
@@ -33,7 +33,7 @@ const port = process.env.PORT || 3000;
 //db config for APIs
 await connect();
 //services config
-await mainService();
+// await mainService();
 
 //routes config
 //home
