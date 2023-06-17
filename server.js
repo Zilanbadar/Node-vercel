@@ -10,13 +10,13 @@ import { engine } from "express-handlebars";
 import stripe from "stripe";
 
 const app = express();
-const stripee = stripe("sk_test_51NHFtEH40MT5zcXSLr0O782Nc4n2R2dJTJ0hgvnq5EQH2D3mEC3BxVrcrU5oULuUz3Res3tZspwzi0QEIz1VC1Cm00SYf8hdR1")
-app.engine(
-  "handlebars",
-  engine({
-    defaultLayout: false,
-  })
-);
+// const stripee = stripe("sk_test_51NHFtEH40MT5zcXSLr0O782Nc4n2R2dJTJ0hgvnq5EQH2D3mEC3BxVrcrU5oULuUz3Res3tZspwzi0QEIz1VC1Cm00SYf8hdR1")
+// app.engine(
+//   "handlebars",
+//   engine({
+//     defaultLayout: false,
+//   })
+// );
 app.set("view engine", "handlebars");
 app.set("views", "./views");
 
@@ -52,29 +52,29 @@ app.use("/api/v1/users", userRoutes);
 //job routes
 app.use("/api/v1/jobs", jobRoutes);
 //reset password routes
-app.use("/api/v1/reset-password", resetRoutes);
+// app.use("/api/v1/reset-password", resetRoutes);
 
 //Stripe
 
-app.post('/charge', async (req, res) => {
-  try {
-    const { token } = req.body;
-    // Create a charge or perform any other necessary actions with the token
-    const charge = await stripee.charges.create({
-      amount: 1000, // Amount in cents
-      currency: 'usd',
-      source: token,
-      description: 'Example charge',
-    });
+// app.post('/charge', async (req, res) => {
+//   try {
+//     const { token } = req.body;
+//     // Create a charge or perform any other necessary actions with the token
+//     const charge = await stripee.charges.create({
+//       amount: 1000, // Amount in cents
+//       currency: 'usd',
+//       source: token,
+//       description: 'Example charge',
+//     });
 
-    // Handle the success case
-    res.send('Payment successful');
-  } catch (error) {
-    // Handle the error case
-    console.log(error);
-    res.status(500).send('Payment failed');
-  }
-});
+//     // Handle the success case
+//     res.send('Payment successful');
+//   } catch (error) {
+//     // Handle the error case
+//     console.log(error);
+//     res.status(500).send('Payment failed');
+//   }
+// });
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
